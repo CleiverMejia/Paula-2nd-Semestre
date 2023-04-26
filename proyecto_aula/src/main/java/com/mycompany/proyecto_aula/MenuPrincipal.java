@@ -16,6 +16,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public MenuPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setTitle("Proyecto de aula");
     }
 
     /**
@@ -40,9 +41,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         Fondo.setBackground(new java.awt.Color(61, 61, 73));
 
-        jButton4.setBackground(new java.awt.Color(11, 14, 27));
+        jButton4.setBackground(new java.awt.Color(9, 9, 15));
         jButton4.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(204, 204, 255));
+        jButton4.setForeground(new java.awt.Color(234, 237, 253));
         jButton4.setText("Salir");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,9 +51,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        retiroBoton.setBackground(new java.awt.Color(11, 14, 27));
+        retiroBoton.setBackground(new java.awt.Color(9, 9, 15));
         retiroBoton.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
-        retiroBoton.setForeground(new java.awt.Color(204, 204, 255));
+        retiroBoton.setForeground(new java.awt.Color(234, 237, 253));
         retiroBoton.setText("Retirar Vehiculo");
         retiroBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,9 +61,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        ingresoBoton.setBackground(new java.awt.Color(11, 14, 27));
+        ingresoBoton.setBackground(new java.awt.Color(9, 9, 15));
         ingresoBoton.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
-        ingresoBoton.setForeground(new java.awt.Color(204, 204, 255));
+        ingresoBoton.setForeground(new java.awt.Color(234, 237, 253));
         ingresoBoton.setText("Ingresar Vehiculo");
         ingresoBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,9 +71,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        listaBoton.setBackground(new java.awt.Color(11, 14, 27));
+        listaBoton.setBackground(new java.awt.Color(9, 9, 15));
         listaBoton.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
-        listaBoton.setForeground(new java.awt.Color(204, 204, 255));
+        listaBoton.setForeground(new java.awt.Color(234, 237, 253));
         listaBoton.setText("Listar Vehiculo");
         listaBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +81,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(143, 18, 51));
+        jPanel1.setBackground(new java.awt.Color(36, 36, 45));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -104,29 +105,29 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
                 .addGap(52, 52, 52)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addGap(57, 57, 57)
                 .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(listaBoton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ingresoBoton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(retiroBoton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(73, 73, 73))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         FondoLayout.setVerticalGroup(
             FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
                 .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FondoLayout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ingresoBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(retiroBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(listaBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(85, 85, 85))
-                    .addGroup(FondoLayout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)))
+                        .addGap(72, 72, 72)))
                 .addComponent(jButton4)
                 .addContainerGap())
         );
