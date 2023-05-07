@@ -1,0 +1,2 @@
+Cleiver,Auto,ASD-123,Cartagena
+Jose,Moto,DSA-12A,Turbaco
