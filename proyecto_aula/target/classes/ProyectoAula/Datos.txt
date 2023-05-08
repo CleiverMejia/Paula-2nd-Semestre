@@ -1,10 +1,8 @@
 Cleiver,Motor,ASD-123,Arjona
 Juan,Motor,KJF-98G,Magangué
 Alejandro,Bicicleta,N/A,N/A
-Pedro Armando,Auto,KKJ-866,Mompox
 Pedro,Auto,LKL-882,Santa Rosa
 Leonardo,Auto,KJI-984,Turbaco
 karla,Bicicleta,N/A,N/A
-Cleiver,Bicicleta,N/A,N/A
 Jhonson,Auto,SPP-239,Magangué
-Pablo,Moto,KJH-12K,Modificado
+Manuel,Bicicleta,N/A,N/A

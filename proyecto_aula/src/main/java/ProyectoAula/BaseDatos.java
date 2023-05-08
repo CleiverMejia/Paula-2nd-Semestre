@@ -36,7 +36,7 @@ public class BaseDatos extends javax.swing.JFrame {
     }
     
     public static void info() throws FileNotFoundException {
-        File file = new File("src/main/java/ProyectoAula/Datos.txt");
+        File file = new File("./proyecto_aula/src/main/java/ProyectoAula/Datos.txt");
         user = new UserInfo();
         userCont = 0;
         

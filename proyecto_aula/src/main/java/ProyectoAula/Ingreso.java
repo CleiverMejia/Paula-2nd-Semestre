@@ -315,7 +315,7 @@ public class Ingreso extends javax.swing.JFrame {
                 && name.length() != 0) {
 
             if ("Bicicleta".equals(type)) {placa = "N/A"; city = "N/A";}
-            File file = new File("src/main/java/ProyectoAula/Datos.txt");
+            File file = new File("./proyecto_aula/src/main/java/ProyectoAula/Datos.txt");
             UserInfo user = new UserInfo();
             int userCont = 0;
 
@@ -343,7 +343,7 @@ public class Ingreso extends javax.swing.JFrame {
                 userCont++;
             }
         
-            PrintWriter writer = new PrintWriter("src/main/java/ProyectoAula/Datos.txt", "UTF-8");
+            PrintWriter writer = new PrintWriter("./proyecto_aula/src/main/java/ProyectoAula/Datos.txt", "UTF-8");
             for (int i = 0; i < userCont; i++) {
                 writer.println(user.GetAll(i));
             }
