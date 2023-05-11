@@ -5,7 +5,8 @@
 package ProyectoAula;
 
 import java.io.*;
-import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.logging.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -25,10 +26,20 @@ public class BaseDatos extends javax.swing.JFrame {
             initComponents();
             this.setLocationRelativeTo(null);
             info();
-            
+            SimpleDateFormat date = new SimpleDateFormat("dd | HH:mm:ss");
+            String tiempoActual = date.format(new Date());
+            final int PRECIO = 2500; 
+
             DefaultTableModel model = (DefaultTableModel) Tabla.getModel();
             for (int i = 0; i < userCont; i++) {
-                model.addRow(new Object[]{i, user.GetName(i), user.GetType(i), user.GetPlaca(i), user.GetCity(i)});
+                int dias = Math.abs(Integer.parseInt(tiempoActual.substring(0, 2)) - Integer.parseInt(user.GetInput(i).substring(0, 2)));
+                int horas = (24*dias) + (Integer.parseInt(tiempoActual.substring(5, 7)) - Integer.parseInt(user.GetInput(i).substring(5, 7)));
+                float minutos = Math.abs(Float.parseFloat(tiempoActual.substring(8, 10)) - Float.parseFloat(user.GetInput(i).substring(8, 10)));
+                int segundos = Math.abs(Integer.parseInt(tiempoActual.substring(11, 13)) - Integer.parseInt(user.GetInput(i).substring(11, 13)));
+
+                int tiempoHrs = (int) (horas + ((minutos+(segundos/60f))/60f));
+                int total = tiempoHrs*PRECIO;
+                model.addRow(new Object[]{i, user.GetName(i), user.GetType(i), user.GetPlaca(i), user.GetCity(i), user.GetInput(i), user.GetOutput(i), "$ " + total});
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
@@ -43,10 +54,10 @@ public class BaseDatos extends javax.swing.JFrame {
         Scanner scanner = new Scanner(file);
         while (scanner.hasNextLine()) {
             String linea = scanner.nextLine();
-            String[] div = linea.split(",");
+            String[] div = linea.split("⁋");
 
-            if (div.length == 4) {
-                user.NewUser(div[0], div[1], div[2], div[3]);
+            if (div.length == 6) {
+                user.NewUser(div[0], div[1], div[2], div[3], div[4], div[5]);
                 userCont++;
             }
         }
@@ -88,11 +99,11 @@ public class BaseDatos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Propietario", "Tipo de vehiculo", "Placa", "Ciudad"
+                "ID", "Propietario", "Tipo de vehiculo", "Placa", "Ciudad", "Entrada", "Salida", "Monto"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -106,8 +117,6 @@ public class BaseDatos extends javax.swing.JFrame {
         Tabla.setSelectionForeground(new java.awt.Color(204, 204, 255));
         Tabla.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         Tabla.setShowGrid(true);
-        Tabla.setShowHorizontalLines(true);
-        Tabla.setShowVerticalLines(true);
         Tabla.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(Tabla);
 
@@ -137,25 +146,28 @@ public class BaseDatos extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(66, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(65, 65, 65))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 20, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(175, 175, 175)
+                .addComponent(jLabel2)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))

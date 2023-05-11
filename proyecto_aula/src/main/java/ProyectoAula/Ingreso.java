@@ -1,7 +1,10 @@
 package ProyectoAula;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.*;
+
+import javax.swing.JOptionPane;
 
 public class Ingreso extends javax.swing.JFrame {
 
@@ -322,10 +325,10 @@ public class Ingreso extends javax.swing.JFrame {
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
                 String linea = scanner.nextLine();
-                String[] div = linea.split(",");
+                String[] div = linea.split("⁋");
 
-                if (div.length == 4) {
-                    user.NewUser(div[0], div[1], div[2], div[3]);
+                if (div.length == 6) {
+                    user.NewUser(div[0], div[1], div[2], div[3], div[4], div[5]);
                     userCont++;
                 }
             }
@@ -339,7 +342,9 @@ public class Ingreso extends javax.swing.JFrame {
             }
 
             if (comp) {
-                user.NewUser(name, opVehiculo, placa, city);
+                SimpleDateFormat date = new SimpleDateFormat("dd | HH:mm:ss");
+                String tiempoActual = date.format(new Date());
+                user.NewUser(name, opVehiculo, placa, city,tiempoActual,"N/A");
                 userCont++;
             }
         
@@ -348,8 +353,10 @@ public class Ingreso extends javax.swing.JFrame {
                 writer.println(user.GetAll(i));
             }
             writer.close();
+
+            JOptionPane.showMessageDialog(null,"Vehiculo ingresado con exito!","Exitoso!", JOptionPane.DEFAULT_OPTION);
         } else {
-            System.out.println("NO");
+            JOptionPane.showMessageDialog(null,"Ingrese todos los campos","Alerta!", JOptionPane.WARNING_MESSAGE);  
         }
     }//GEN-LAST:event_ingresoActionPerformed
 

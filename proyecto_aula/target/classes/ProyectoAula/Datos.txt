@@ -1,8 +1,5 @@
-Cleiver,Motor,ASD-123,Arjona
-Juan,Motor,KJF-98G,Magangué
-Alejandro,Bicicleta,N/A,N/A
-Pedro,Auto,LKL-882,Santa Rosa
-Leonardo,Auto,KJI-984,Turbaco
-karla,Bicicleta,N/A,N/A
-Jhonson,Auto,SPP-239,Magangué
-Manuel,Bicicleta,N/A,N/A
+Cleiver⁋Auto⁋JAH-123⁋Cartagena⁋09 | 18:27:26⁋N/A
+Juan⁋Auto⁋LII-934⁋Magangué⁋10 | 15:53:40⁋N/A
+Pedro⁋Bicicleta⁋N/A⁋N/A⁋10 | 15:54:24⁋N/A
+Alberto⁋Moto⁋LKI-87S⁋Clemencia⁋10 | 15:55:37⁋N/A
+Kely⁋Bicicleta⁋N/A⁋N/A⁋10 | 16:59:52⁋N/A

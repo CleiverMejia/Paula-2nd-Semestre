@@ -1,25 +1,22 @@
 package ProyectoAula;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class UserInfo {
     private ArrayList<String> nombre = new ArrayList<>();
     private ArrayList<String> tipoVehiculo = new ArrayList<>();
     private ArrayList<String> placa = new ArrayList<>();
     private ArrayList<String> ciudad = new ArrayList<>();
+    private ArrayList<String> entrada = new ArrayList<>();
+    private ArrayList<String> salida = new ArrayList<>();
 
-    public void NewUser(String name, String type, String placa, String city) {
+    public void NewUser(String name, String type, String placa, String city, String input, String output) {
         this.nombre.add(name);
         this.tipoVehiculo.add(type);
         this.placa.add(placa);
         this.ciudad.add(city);
-    }
-
-    public void GetUser(int i) {
-        System.out.println(this.nombre.get(i));
-        System.out.println(this.tipoVehiculo.get(i));
-        System.out.println(this.placa.get(i));
-        System.out.println(this.ciudad.get(i));
+        this.entrada.add(input);
+        this.salida.add(output);
     }
 
     public String GetName(int i) {
@@ -38,7 +35,15 @@ public class UserInfo {
         return this.ciudad.get(i);
     }
 
+    public String GetInput(int i) {
+        return this.entrada.get(i);
+    }
+
+    public String GetOutput(int i) {
+        return this.salida.get(i);
+    }
+
     public String GetAll(int i) {
-        return this.nombre.get(i)+","+this.tipoVehiculo.get(i)+","+this.placa.get(i)+","+this.ciudad.get(i);
+        return this.nombre.get(i)+"⁋"+this.tipoVehiculo.get(i)+"⁋"+this.placa.get(i)+"⁋"+this.ciudad.get(i)+"⁋"+this.entrada.get(i)+"⁋"+this.salida.get(i);
     }
 }

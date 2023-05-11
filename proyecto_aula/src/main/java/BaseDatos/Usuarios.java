@@ -9,6 +9,21 @@ public class Usuarios {
         String nombre1 = "Juan", tipo = "Auto", placa = "LKJ-842", ciudad = "Cartagena";
         int userCont = 0;
 
+        final int PRECIO = 2500; 
+        String entrada = "09 | 18:00:00";
+        String actual = "09 | 18:59:59";
+        
+
+        int dias = Math.abs(Integer.parseInt(actual.substring(0, 2)) - Integer.parseInt(entrada.substring(0, 2)));
+        int horas = (24*dias) + (Integer.parseInt(actual.substring(5, 7)) - Integer.parseInt(entrada.substring(5, 7)));
+        float minutos = Math.abs(Float.parseFloat(actual.substring(8, 10)) - Float.parseFloat(entrada.substring(8, 10)));
+        int segundos = Math.abs(Integer.parseInt(actual.substring(11, 13)) - Integer.parseInt(entrada.substring(11, 13)));
+
+        float tiempoHrs = horas + ((minutos+(segundos/60f))/60f);
+        int total = (int) (tiempoHrs*PRECIO);
+
+        System.out.println("Valor a pagar: " + total);
+        /*
         try {
             File file = new File("src/main/java/BaseDatos/Datos.txt");
 
@@ -65,7 +80,7 @@ public class Usuarios {
             /* 
             FileWriter escribir = new FileWriter(archivo);
             escribir.write("TEXTO2");
-            escribir.close();*/
+            escribir.close();
 
             //writer.close();
         } catch (FileNotFoundException e) {
@@ -75,6 +90,6 @@ public class Usuarios {
 
         for (int i = 0; i < userCont; i++) {
             user.GetUser(i);
-        }
+        }*/
     }
 }
