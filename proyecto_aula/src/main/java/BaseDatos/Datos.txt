@@ -1,5 +1,0 @@
-Cleiver,Auto,ASD-123,Cartagena
-Cleiver,Motor,ASD-123,Arjona
-Cleiver,Motor,ASD-123,Arjona
-Cleiver,Motor,ASD-123,Arjona
-Cleiver,Motor,ASD-123,Arjona

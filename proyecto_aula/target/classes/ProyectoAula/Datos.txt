@@ -1,5 +1,7 @@
-Cleiver⁋Auto⁋JAH-123⁋Cartagena⁋09 | 18:27:26⁋N/A
-Juan⁋Auto⁋LII-934⁋Magangué⁋10 | 15:53:40⁋N/A
-Pedro⁋Bicicleta⁋N/A⁋N/A⁋10 | 15:54:24⁋N/A
-Alberto⁋Moto⁋LKI-87S⁋Clemencia⁋10 | 15:55:37⁋N/A
-Kely⁋Bicicleta⁋N/A⁋N/A⁋10 | 16:59:52⁋N/A
+Cleiver⁋Auto⁋JAH-123⁋Cartagena⁋09 | 18:27:26⁋12 | 22:21:00
+Juan⁋Auto⁋LII-934⁋Magangué⁋10 | 15:53:40⁋12 | 17:24:52
+Pedro⁋Bicicleta⁋N/A⁋N/A⁋10 | 15:54:24⁋12 | 22:55:22
+Alberto⁋Moto⁋LKI-87S⁋Clemencia⁋10 | 15:55:37⁋12 | 22:40:06
+Kely⁋Bicicleta⁋N/A⁋N/A⁋10 | 16:59:52⁋13 | 18:09:53
+Roberto⁋Auto⁋ASD-123⁋Arjona⁋12 | 22:23:42⁋12 | 22:24:12
+Pablo⁋Moto⁋ASD-12A⁋San Juan Nepomuceno⁋12 | 22:25:05⁋N/A

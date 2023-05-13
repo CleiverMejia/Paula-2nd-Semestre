@@ -27,18 +27,21 @@ public class BaseDatos extends javax.swing.JFrame {
             this.setLocationRelativeTo(null);
             info();
             SimpleDateFormat date = new SimpleDateFormat("dd | HH:mm:ss");
-            String tiempoActual = date.format(new Date());
             final int PRECIO = 2500; 
 
             DefaultTableModel model = (DefaultTableModel) Tabla.getModel();
             for (int i = 0; i < userCont; i++) {
+                String tiempoActual = date.format(new Date());
+                if (!user.GetOutput(i).equals("N/A")) {
+                    tiempoActual = user.GetOutput(i);
+                }
                 int dias = Math.abs(Integer.parseInt(tiempoActual.substring(0, 2)) - Integer.parseInt(user.GetInput(i).substring(0, 2)));
                 int horas = (24*dias) + (Integer.parseInt(tiempoActual.substring(5, 7)) - Integer.parseInt(user.GetInput(i).substring(5, 7)));
-                float minutos = Math.abs(Float.parseFloat(tiempoActual.substring(8, 10)) - Float.parseFloat(user.GetInput(i).substring(8, 10)));
+                float minutos = Math.abs(Integer.parseInt(tiempoActual.substring(8, 10)) - Integer.parseInt(user.GetInput(i).substring(8, 10)));
                 int segundos = Math.abs(Integer.parseInt(tiempoActual.substring(11, 13)) - Integer.parseInt(user.GetInput(i).substring(11, 13)));
 
                 int tiempoHrs = (int) (horas + ((minutos+(segundos/60f))/60f));
-                int total = tiempoHrs*PRECIO;
+                int total = (tiempoHrs*PRECIO)+PRECIO;
                 model.addRow(new Object[]{i, user.GetName(i), user.GetType(i), user.GetPlaca(i), user.GetCity(i), user.GetInput(i), user.GetOutput(i), "$ " + total});
             }
         } catch (FileNotFoundException ex) {

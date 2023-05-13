@@ -12,9 +12,9 @@ public class Ingreso extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Proyecto de aula");
-        jLabel2.setVisible(false);
-        jLabel4.setVisible(false);
-        PlacaVehiculo.setVisible(false);
+        lPlaca.setVisible(false);
+        lCiudad.setVisible(false);
+        tPlaca.setVisible(false);
         Ciudades.setVisible(false);
     }
 
@@ -23,63 +23,63 @@ public class Ingreso extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        VolverIngreso = new javax.swing.JButton();
-        PlacaVehiculo = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        nombre = new javax.swing.JTextField();
+        volver = new javax.swing.JButton();
+        tPlaca = new javax.swing.JTextField();
+        lPlaca = new javax.swing.JLabel();
+        titulo = new javax.swing.JLabel();
+        lNombre = new javax.swing.JLabel();
+        tNombre = new javax.swing.JTextField();
         Ciudades = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
+        lCiudad = new javax.swing.JLabel();
         ingreso = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        salir = new javax.swing.JButton();
+        img = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lVehiculo = new javax.swing.JLabel();
         typeVehiculo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(61, 61, 73));
 
-        VolverIngreso.setBackground(new java.awt.Color(9, 9, 15));
-        VolverIngreso.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 12)); // NOI18N
-        VolverIngreso.setForeground(new java.awt.Color(204, 204, 255));
-        VolverIngreso.setText("Volver");
-        VolverIngreso.addActionListener(new java.awt.event.ActionListener() {
+        volver.setBackground(new java.awt.Color(9, 9, 15));
+        volver.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 12)); // NOI18N
+        volver.setForeground(new java.awt.Color(204, 204, 255));
+        volver.setText("Volver");
+        volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VolverIngresoActionPerformed(evt);
+                volverActionPerformed(evt);
             }
         });
 
-        PlacaVehiculo.setBackground(new java.awt.Color(36, 36, 45));
-        PlacaVehiculo.setFont(new java.awt.Font("Mongolian Baiti", 0, 14)); // NOI18N
-        PlacaVehiculo.setForeground(new java.awt.Color(234, 237, 253));
-        PlacaVehiculo.addActionListener(new java.awt.event.ActionListener() {
+        tPlaca.setBackground(new java.awt.Color(36, 36, 45));
+        tPlaca.setFont(new java.awt.Font("Mongolian Baiti", 0, 14)); // NOI18N
+        tPlaca.setForeground(new java.awt.Color(234, 237, 253));
+        tPlaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PlacaVehiculoActionPerformed(evt);
+                tPlacaActionPerformed(evt);
             }
         });
-        PlacaVehiculo.addKeyListener(new java.awt.event.KeyAdapter() {
+        tPlaca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                PlacaVehiculoKeyTyped(evt);
+                tPlacaKeyTyped(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(234, 237, 253));
-        jLabel2.setText("Placa:");
+        lPlaca.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        lPlaca.setForeground(new java.awt.Color(234, 237, 253));
+        lPlaca.setText("Placa:");
 
-        jLabel3.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(234, 237, 253));
-        jLabel3.setText("Ingreso de vehiculos");
+        titulo.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 36)); // NOI18N
+        titulo.setForeground(new java.awt.Color(234, 237, 253));
+        titulo.setText("Ingreso de vehiculos");
 
-        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(234, 237, 253));
-        jLabel1.setText("Nombre del propietario:");
+        lNombre.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        lNombre.setForeground(new java.awt.Color(234, 237, 253));
+        lNombre.setText("Nombre del propietario:");
 
-        nombre.setBackground(new java.awt.Color(36, 36, 45));
-        nombre.setForeground(new java.awt.Color(234, 237, 253));
+        tNombre.setBackground(new java.awt.Color(36, 36, 45));
+        tNombre.setForeground(new java.awt.Color(234, 237, 253));
 
         Ciudades.setBackground(new java.awt.Color(0, 0, 0));
         Ciudades.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 12)); // NOI18N
@@ -91,9 +91,9 @@ public class Ingreso extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(234, 237, 253));
-        jLabel4.setText("Ciudad:");
+        lCiudad.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        lCiudad.setForeground(new java.awt.Color(234, 237, 253));
+        lCiudad.setText("Ciudad:");
 
         ingreso.setBackground(new java.awt.Color(9, 9, 15));
         ingreso.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 12)); // NOI18N
@@ -110,41 +110,41 @@ public class Ingreso extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(9, 9, 15));
-        jButton2.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(204, 204, 255));
-        jButton2.setText("Salir");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        salir.setBackground(new java.awt.Color(9, 9, 15));
+        salir.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 12)); // NOI18N
+        salir.setForeground(new java.awt.Color(204, 204, 255));
+        salir.setText("Salir");
+        salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                salirActionPerformed(evt);
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(36, 36, 45));
+        img.setBackground(new java.awt.Color(36, 36, 45));
 
         jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cleiver\\Desktop\\Cleiver\\Pat\\proyecto_aula\\src\\main\\java\\imagenes\\Autos_1.png")); // NOI18N
         jLabel6.setToolTipText("");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout imgLayout = new javax.swing.GroupLayout(img);
+        img.setLayout(imgLayout);
+        imgLayout.setHorizontalGroup(
+            imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, imgLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addGap(23, 23, 23))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        imgLayout.setVerticalGroup(
+            imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(imgLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(234, 237, 253));
-        jLabel5.setText("Tipo de vehiculo:");
+        lVehiculo.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        lVehiculo.setForeground(new java.awt.Color(234, 237, 253));
+        lVehiculo.setText("Tipo de vehiculo:");
 
         typeVehiculo.setBackground(new java.awt.Color(0, 0, 0));
         typeVehiculo.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 12)); // NOI18N
@@ -162,19 +162,19 @@ public class Ingreso extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3)
+                .addComponent(titulo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(img, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(22, 22, 22))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(VolverIngreso)
+                        .addComponent(volver)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2))
+                        .addComponent(salir))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -184,22 +184,22 @@ public class Ingreso extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
+                                        .addComponent(lCiudad)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(Ciudades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel5)
+                                            .addComponent(lVehiculo)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(typeVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel2)
+                                            .addComponent(lPlaca)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(PlacaVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(tPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel1)
+                                            .addComponent(lNombre)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(tNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(16, 16, 16)))
                 .addContainerGap())
@@ -208,29 +208,29 @@ public class Ingreso extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3)
+                .addComponent(titulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lNombre)
+                    .addComponent(tNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PlacaVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel5)
+                    .addComponent(tPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lPlaca)
+                    .addComponent(lVehiculo)
                     .addComponent(typeVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Ciudades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(lCiudad))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ingreso)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(VolverIngreso)
-                    .addComponent(jButton2))
+                    .addComponent(volver)
+                    .addComponent(salir))
                 .addContainerGap())
         );
 
@@ -249,47 +249,47 @@ public class Ingreso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
-    private void VolverIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverIngresoActionPerformed
+    private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
         MenuPrincipal principal = new MenuPrincipal();
         principal.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_VolverIngresoActionPerformed
+    }//GEN-LAST:event_volverActionPerformed
 
-    private void PlacaVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlacaVehiculoActionPerformed
+    private void tPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tPlacaActionPerformed
 
-    }//GEN-LAST:event_PlacaVehiculoActionPerformed
+    }//GEN-LAST:event_tPlacaActionPerformed
 
-    private void PlacaVehiculoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlacaVehiculoKeyTyped
-        if (PlacaVehiculo.getText().length() > 6) {
+    private void tPlacaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tPlacaKeyTyped
+        if (tPlaca.getText().length() > 6) {
             evt.consume();
         }
-    }//GEN-LAST:event_PlacaVehiculoKeyTyped
+    }//GEN-LAST:event_tPlacaKeyTyped
 
     private void CiudadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CiudadesActionPerformed
 
     }//GEN-LAST:event_CiudadesActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_salirActionPerformed
 
     private void typeVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeVehiculoActionPerformed
         if ("Motor".equals(typeVehiculo.getSelectedItem().toString())) {
-            jLabel2.setVisible(true);
-            jLabel4.setVisible(true);
-            PlacaVehiculo.setVisible(true);
+            lPlaca.setVisible(true);
+            lCiudad.setVisible(true);
+            tPlaca.setVisible(true);
             Ciudades.setVisible(true);
         } else {
-            jLabel2.setVisible(false);
-            jLabel4.setVisible(false);
-            PlacaVehiculo.setVisible(false);
+            lPlaca.setVisible(false);
+            lCiudad.setVisible(false);
+            tPlaca.setVisible(false);
             Ciudades.setVisible(false);
         }
     }//GEN-LAST:event_typeVehiculoActionPerformed
 
     private void ingresoActionPerformed(java.awt.event.ActionEvent evt) throws FileNotFoundException, UnsupportedEncodingException {//GEN-FIRST:event_ingresoActionPerformed
         boolean comprobarPlaca = true, comprobarCiudad = true;
-        String name = nombre.getText(), placa = PlacaVehiculo.getText().toUpperCase(), type = typeVehiculo.getSelectedItem().toString();
+        String name = tNombre.getText(), placa = tPlaca.getText().toUpperCase(), type = typeVehiculo.getSelectedItem().toString();
         String opVehiculo = "Bicicleta", city = Ciudades.getSelectedItem().toString();
 
         if ("Motor".equals(type)) {
@@ -397,19 +397,19 @@ public class Ingreso extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Ciudades;
-    private javax.swing.JTextField PlacaVehiculo;
-    private javax.swing.JButton VolverIngreso;
+    private javax.swing.JPanel img;
     private javax.swing.JButton ingreso;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField nombre;
+    private javax.swing.JLabel lCiudad;
+    private javax.swing.JLabel lNombre;
+    private javax.swing.JLabel lPlaca;
+    private javax.swing.JLabel lVehiculo;
+    private javax.swing.JButton salir;
+    private javax.swing.JTextField tNombre;
+    private javax.swing.JTextField tPlaca;
+    private javax.swing.JLabel titulo;
     private javax.swing.JComboBox<String> typeVehiculo;
+    private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

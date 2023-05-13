@@ -43,6 +43,10 @@ public class UserInfo {
         return this.salida.get(i);
     }
 
+    public String SetOutput(int i, String fecha) {
+        return this.salida.set(i, fecha);
+    }
+
     public String GetAll(int i) {
         return this.nombre.get(i)+"⁋"+this.tipoVehiculo.get(i)+"⁋"+this.placa.get(i)+"⁋"+this.ciudad.get(i)+"⁋"+this.entrada.get(i)+"⁋"+this.salida.get(i);
     }

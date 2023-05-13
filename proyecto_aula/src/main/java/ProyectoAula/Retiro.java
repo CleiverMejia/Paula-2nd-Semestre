@@ -1,5 +1,14 @@
 package ProyectoAula;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Cleiver
@@ -12,6 +21,12 @@ public class Retiro extends javax.swing.JFrame {
     public Retiro() {
         initComponents();
         this.setLocationRelativeTo(null);
+        jLabel5.setVisible(false);
+        jLabel6.setVisible(false);
+        tPlaca.setVisible(false);
+        Ciudades.setVisible(false);
+        tID.setVisible(false);
+        jLabel4.setVisible(false);
     }
 
     /**
@@ -26,16 +41,20 @@ public class Retiro extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        tNombre = new javax.swing.JTextField();
+        TypeVehiculo = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        tID = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        retirar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        Ciudades = new javax.swing.JComboBox<>();
+        tPlaca = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(61, 61, 73));
@@ -46,29 +65,41 @@ public class Retiro extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(204, 204, 255));
         jLabel2.setText("Retiro de vehiculos");
 
-        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 255));
         jLabel1.setText("Nombre del propietario:");
 
-        jTextField2.setBackground(new java.awt.Color(36, 36, 45));
+        tNombre.setBackground(new java.awt.Color(36, 36, 45));
+        tNombre.setForeground(new java.awt.Color(204, 204, 255));
 
-        jComboBox1.setBackground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setForeground(new java.awt.Color(204, 204, 255));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "N/A", "Motor", "Bicicleta" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        TypeVehiculo.setBackground(new java.awt.Color(0, 0, 0));
+        TypeVehiculo.setForeground(new java.awt.Color(204, 204, 255));
+        TypeVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "N/A", "Motor", "Bicicleta" }));
+        TypeVehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                TypeVehiculoActionPerformed(evt);
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 204, 255));
         jLabel4.setText("ID:");
 
-        jTextField3.setBackground(new java.awt.Color(36, 36, 45));
+        tID.setBackground(new java.awt.Color(36, 36, 45));
+        tID.setForeground(new java.awt.Color(204, 204, 255));
+        tID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tIDActionPerformed(evt);
+            }
+        });
+        tID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tIDKeyTyped(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(9, 9, 15));
-        jButton2.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 12)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(204, 204, 255));
         jButton2.setText("Salir");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -77,18 +108,23 @@ public class Retiro extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(9, 9, 15));
-        jButton3.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(204, 204, 255));
-        jButton3.setText("Retirar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        retirar.setBackground(new java.awt.Color(9, 9, 15));
+        retirar.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 12)); // NOI18N
+        retirar.setForeground(new java.awt.Color(204, 204, 255));
+        retirar.setText("Retirar");
+        retirar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                try {
+                    retirarActionPerformed(evt);
+                } catch (FileNotFoundException | UnsupportedEncodingException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
 
         jButton1.setBackground(new java.awt.Color(9, 9, 15));
-        jButton1.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 12)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(204, 204, 255));
         jButton1.setText("Volver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -99,25 +135,53 @@ public class Retiro extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(36, 36, 45));
 
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cleiver\\Desktop\\Cleiver\\Pat\\proyecto_aula\\src\\main\\java\\imagenes\\iconos-recogida-entrega.bd79a1b21f946a0554830002e1de6a9b.fill-560x333.png")); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 434, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 422, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 339, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(204, 204, 255));
         jLabel5.setText("Placa:");
 
-        jTextField1.setBackground(new java.awt.Color(36, 36, 45));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel3.setText("Tipo:");
+
+        jLabel6.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel6.setText("Ciudad:");
+
+        Ciudades.setBackground(new java.awt.Color(0, 0, 0));
+        Ciudades.setForeground(new java.awt.Color(204, 204, 255));
+        Ciudades.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "N/A", "Arjona", "Cartagena", "Clemencia", "Magangué", "Mompox", "San Juan Nepomuceno", "Santa Rosa", "Turbaco", "Otro" }));
+        Ciudades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                CiudadesActionPerformed(evt);
+            }
+        });
+
+        tPlaca.setBackground(new java.awt.Color(36, 36, 45));
+        tPlaca.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 12)); // NOI18N
+        tPlaca.setForeground(new java.awt.Color(204, 204, 255));
+        tPlaca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tPlacaKeyTyped(evt);
             }
         });
 
@@ -125,18 +189,6 @@ public class Retiro extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(200, 200, 200)
-                        .addComponent(jButton3)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -148,19 +200,37 @@ public class Retiro extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(TypeVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tID, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Ciudades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(20, 20, 20))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addGap(112, 112, 112)
+                .addComponent(retirar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,23 +242,25 @@ public class Retiro extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TypeVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3)
+                    .addComponent(tPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addGap(5, 5, 5)
+                    .addComponent(tID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(Ciudades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(8, 8, 8))
+                    .addComponent(jButton2)
+                    .addComponent(retirar))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -199,9 +271,7 @@ public class Retiro extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -213,21 +283,111 @@ public class Retiro extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void retirarActionPerformed(java.awt.event.ActionEvent evt) throws FileNotFoundException, UnsupportedEncodingException{//GEN-FIRST:event_retirarActionPerformed
+        File file = new File("./proyecto_aula/src/main/java/ProyectoAula/Datos.txt");
+        UserInfo user = new UserInfo();
+        int id = 0, cont = 0;
+        
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNextLine()) {
+            String linea = scanner.nextLine();
+            String[] div = linea.split("⁋");
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+            if (div.length == 6) {
+                user.NewUser(div[0], div[1], div[2], div[3], div[4], div[5]);
+                cont++;
+            }
+        }
+        scanner.close();
+
+        String placa = tPlaca.getText(), ciudad = Ciudades.getSelectedItem().toString();
+        String opVehiculo = TypeVehiculo.getSelectedItem().toString();
+        if (tID.getText().matches("[0-9]+")) {
+            if (TypeVehiculo.getSelectedItem().toString().equals("Motor") && placa.length() > 0) {
+                id = Integer.parseInt(tID.getText());
+                opVehiculo = (placa.toUpperCase().charAt(6) >= 'A' && placa.toUpperCase().charAt(6) <= 'Z') ? "Moto" : "Auto";
+            }
+
+            if (TypeVehiculo.getSelectedItem().toString().equals("Bicicleta")) {
+                id = Integer.parseInt(tID.getText());
+                placa = "N/A";
+                ciudad = "N/A";
+            }
+        }
+        
+        if (tNombre.getText().length() > 0 && id >= 0 && id < cont && placa.length() > 0) {
+
+            if (user.GetName(id).equals(tNombre.getText()) && user.GetType(id).equals(opVehiculo) && user.GetPlaca(id).equals(placa.toUpperCase()) && 
+            user.GetCity(id).equals(ciudad)) {
+            
+                if (user.GetOutput(id).equals("N/A")) {
+                    SimpleDateFormat date = new SimpleDateFormat("dd | HH:mm:ss");
+                    String tiempoActual = date.format(new Date());
+                    user.SetOutput(id, tiempoActual);
+
+                    PrintWriter writer = new PrintWriter("./proyecto_aula/src/main/java/ProyectoAula/Datos.txt", "UTF-8");
+                    for (int i = 0; i < cont; i++) {
+                        writer.println(user.GetAll(i));
+                    }
+                    writer.close();
+
+                    JOptionPane.showMessageDialog(null,"Vehiculo retirado con exito","Exitoso!", JOptionPane.DEFAULT_OPTION);
+                } else {
+                    JOptionPane.showMessageDialog(null,"El vehiculo ya ha sido retirado","Aviso!", JOptionPane.WARNING_MESSAGE); 
+                }
+            } else {
+                JOptionPane.showMessageDialog(null,"El vehiculo no existe","Aviso!", JOptionPane.WARNING_MESSAGE);  
+            }
+        } else {
+            JOptionPane.showMessageDialog(null,"Ingrese todos los campos!","Alerta!", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_retirarActionPerformed
+
+    private void TypeVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TypeVehiculoActionPerformed
+        if ("Motor".equals(TypeVehiculo.getSelectedItem().toString())) {
+            jLabel5.setVisible(true);
+            jLabel6.setVisible(true);
+            tPlaca.setVisible(true);
+            Ciudades.setVisible(true);
+        } else {
+            jLabel5.setVisible(false);
+            jLabel6.setVisible(false);
+            tPlaca.setVisible(false);
+            Ciudades.setVisible(false);
+        }
+
+        if (!"N/A".equals(TypeVehiculo.getSelectedItem().toString())) {
+            tID.setVisible(true);
+            jLabel4.setVisible(true);
+        } else {
+            jLabel4.setVisible(false);
+            tID.setVisible(false);
+        }
+    }//GEN-LAST:event_TypeVehiculoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void CiudadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CiudadesActionPerformed
+        
+    }//GEN-LAST:event_CiudadesActionPerformed
+
+    private void tIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tIDActionPerformed
+        
+    }//GEN-LAST:event_tIDActionPerformed
+
+    private void tIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tIDKeyTyped
+        if (tID.getText().length() > 2) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_tIDKeyTyped
+
+    private void tPlacaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tPlacaKeyTyped
+        if (tPlaca.getText().length() > 6) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_tPlacaKeyTyped
 
     /**
      * @param args the command line arguments
@@ -265,18 +425,22 @@ public class Retiro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> Ciudades;
+    private javax.swing.JComboBox<String> TypeVehiculo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton retirar;
+    private javax.swing.JTextField tID;
+    private javax.swing.JTextField tNombre;
+    private javax.swing.JTextField tPlaca;
     // End of variables declaration//GEN-END:variables
 }
