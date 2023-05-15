@@ -43,6 +43,10 @@ public class UserInfo {
         return this.salida.get(i);
     }
 
+    public String SetInput(int i, String fecha) {
+        return this.entrada.set(i, fecha);
+    }
+
     public String SetOutput(int i, String fecha) {
         return this.salida.set(i, fecha);
     }

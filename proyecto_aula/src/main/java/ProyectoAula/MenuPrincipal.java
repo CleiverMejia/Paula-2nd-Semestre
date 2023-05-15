@@ -16,7 +16,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public MenuPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("Proyecto de aula");
     }
 
     /**
@@ -40,6 +39,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         Fondo.setBackground(new java.awt.Color(61, 61, 73));
 

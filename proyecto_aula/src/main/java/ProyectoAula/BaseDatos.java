@@ -86,6 +86,7 @@ public class BaseDatos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(61, 61, 73));
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(61, 61, 73));
         jPanel1.setToolTipText("");

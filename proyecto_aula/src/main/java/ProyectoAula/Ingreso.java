@@ -39,6 +39,7 @@ public class Ingreso extends javax.swing.JFrame {
         typeVehiculo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(61, 61, 73));
 
@@ -103,7 +104,10 @@ public class Ingreso extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 try {
                     ingresoActionPerformed(evt);
-                } catch (FileNotFoundException | UnsupportedEncodingException e) {
+                } catch (FileNotFoundException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (UnsupportedEncodingException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
@@ -337,6 +341,11 @@ public class Ingreso extends javax.swing.JFrame {
             boolean comp = true;
             for (int i = 0; i < userCont; i++) {
                 if (placa.equals(user.GetPlaca(i)) && city.equals(user.GetCity(i)) && !placa.equals("N/A")) {
+                    if (!user.GetOutput(i).equals("N/A")) {
+                        SimpleDateFormat date = new SimpleDateFormat("dd | HH:mm:ss");
+                        String tiempoActual = date.format(new Date());
+                        user.SetInput(i, tiempoActual); user.SetOutput(i, "N/A");
+                    }
                     comp = false; break;
                 }
             }

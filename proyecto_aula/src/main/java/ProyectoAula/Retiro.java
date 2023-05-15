@@ -58,6 +58,7 @@ public class Retiro extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(61, 61, 73));
+        setUndecorated(true);
 
         jPanel2.setBackground(new java.awt.Color(61, 61, 73));
 
