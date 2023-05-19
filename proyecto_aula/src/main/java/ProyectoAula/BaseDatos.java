@@ -10,10 +10,6 @@ import java.util.*;
 import java.util.logging.*;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Cleiver
- */
 public class BaseDatos extends javax.swing.JFrame {
     public static UserInfo user = new UserInfo();
     public static int userCont = 0;

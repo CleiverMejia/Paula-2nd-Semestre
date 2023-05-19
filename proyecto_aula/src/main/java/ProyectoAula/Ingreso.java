@@ -126,7 +126,7 @@ public class Ingreso extends javax.swing.JFrame {
 
         img.setBackground(new java.awt.Color(36, 36, 45));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cleiver\\Desktop\\Cleiver\\Pat\\proyecto_aula\\src\\main\\java\\imagenes\\Autos_1.png")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Autos_1.png"))); // NOI18N
         jLabel6.setToolTipText("");
 
         javax.swing.GroupLayout imgLayout = new javax.swing.GroupLayout(img);
@@ -356,7 +356,7 @@ public class Ingreso extends javax.swing.JFrame {
                 user.NewUser(name, opVehiculo, placa, city,tiempoActual,"N/A");
                 userCont++;
             }
-        
+            
             PrintWriter writer = new PrintWriter("./proyecto_aula/src/main/java/ProyectoAula/Datos.txt", "UTF-8");
             for (int i = 0; i < userCont; i++) {
                 writer.println(user.GetAll(i));
@@ -365,7 +365,7 @@ public class Ingreso extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(null,"Vehiculo ingresado con exito!","Exitoso!", JOptionPane.DEFAULT_OPTION);
         } else {
-            JOptionPane.showMessageDialog(null,"Ingrese todos los campos","Alerta!", JOptionPane.WARNING_MESSAGE);  
+            JOptionPane.showMessageDialog(null,"Datos invalidos","Alerta!", JOptionPane.WARNING_MESSAGE);  
         }
     }//GEN-LAST:event_ingresoActionPerformed
 
