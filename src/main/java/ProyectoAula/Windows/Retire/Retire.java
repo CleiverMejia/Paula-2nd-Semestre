@@ -1,5 +1,5 @@
-/* package ProyectoAula;
-
+package ProyectoAula.Windows.Retire;
+/* 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;

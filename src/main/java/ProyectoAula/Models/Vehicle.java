@@ -1,12 +1,14 @@
 package ProyectoAula.Models;
 
-public class Car {
-    private final String typeOfVehicle;
+import ProyectoAula.Enums.TypeOfVehicle;
+
+public class Vehicle {
+    private final TypeOfVehicle typeOfVehicle;
     private final String plate;
     private final String city;
 
-    public Car(
-        String typeOfVehicle,
+    public Vehicle(
+        TypeOfVehicle typeOfVehicle,
         String plate,
         String city
     ) {
@@ -15,7 +17,7 @@ public class Car {
         this.city = city;
     }
 
-    public String getTypeOfVehicle() {
+    public TypeOfVehicle getTypeOfVehicle() {
         return typeOfVehicle;
     }
 

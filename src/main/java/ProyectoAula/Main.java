@@ -18,6 +18,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
 
 import ProyectoAula.Styles.Styles;
+import ProyectoAula.Windows.Entry.Entry;
 
 public class Main extends JFrame {
 
@@ -198,10 +199,10 @@ public class Main extends JFrame {
     }
 
     private void entryButtonActionPerformed(@SuppressWarnings("unused") ActionEvent evt) {
-        /*
-        * Ingreso ingreso = new Ingreso();
-        * setVisible(false);
-        */
+        Entry entryWindow = new Entry();
+        entryWindow.setVisible(true);
+
+        setVisible(false);
     }
 
     private void exitButtonActionPerformed(@SuppressWarnings("unused") ActionEvent evt) {

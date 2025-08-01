@@ -4,10 +4,10 @@ public class User {
     private final String name;
     private final String entry;
     private final String exit;
-    private final Car car;
+    private final Vehicle vehicle;
 
-    public User(Car car, String entry, String exit, String name) {
-        this.car = car;
+    public User(Vehicle vehicle, String entry, String exit, String name) {
+        this.vehicle = vehicle;
         this.entry = entry;
         this.exit = exit;
         this.name = name;
@@ -25,7 +25,7 @@ public class User {
         return exit;
     }
 
-    public Car getCar() {
-        return car;
+    public Vehicle getCar() {
+        return vehicle;
     }
 }

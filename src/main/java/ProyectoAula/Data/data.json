@@ -1,0 +1,122 @@
+[
+    {
+        "name": "Juan",
+        "vehicle": {
+            "type": "Auto",
+            "plate": "LII-934",
+            "city": "Magangué"
+        },
+        "entry": { "dia": "07", "hora": "15:53:40" },
+        "exit": { "dia": "07", "hora": "17:24:52" }
+    },
+    {
+        "name": "Pedro",
+        "vehicle": {
+            "type": "Bicicleta",
+            "plate": "N/A",
+            "city": "N/A"
+        },
+        "entry": { "dia": "07", "hora": "15:54:24" },
+        "exit": { "dia": "07", "hora": "22:55:22" }
+    },
+    {
+        "name": "Alberto",
+        "vehicle": {
+            "type": "Moto",
+            "plate": "LKI-87S",
+            "city": "Clemencia"
+        },
+        "entry": { "dia": "07", "hora": "15:55:37" },
+        "exit": { "dia": "07", "hora": "22:40:06" }
+    },
+    {
+        "name": "Roberto",
+        "vehicle": {
+            "type": "Auto",
+            "plate": "ASD-123",
+            "city": "Arjona"
+        },
+        "entry": { "dia": "08", "hora": "22:23:42" },
+        "exit": { "dia": "08", "hora": "22:24:12" }
+    },
+    {
+        "name": "Carlos",
+        "vehicle": {
+            "type": "Bicicleta",
+            "plate": "N/A",
+            "city": "N/A"
+        },
+        "entry": { "dia": "09", "hora": "12:23:12" },
+        "exit": { "dia": "09", "hora": "13:45:23" }
+    },
+    {
+        "name": "Pablo",
+        "vehicle": {
+            "type": "Moto",
+            "plate": "AKJ-12A",
+            "city": "San Juan Nepomuceno"
+        },
+        "entry": { "dia": "12", "hora": "22:25:05" },
+        "exit": { "dia": "12", "hora": "23:44:10" }
+    },
+    {
+        "name": "Jose",
+        "vehicle": {
+            "type": "Moto",
+            "plate": "POU-12A",
+            "city": "Otro"
+        },
+        "entry": { "dia": "17", "hora": "18:46:34" },
+        "exit": { "dia": "17", "hora": "18:49:02" }
+    },
+    {
+        "name": "Maria",
+        "vehicle": {
+            "type": "Bicicleta",
+            "plate": "N/A",
+            "city": "N/A"
+        },
+        "entry": { "dia": "17", "hora": "18:51:49" },
+        "exit": { "dia": "17", "hora": "20:52:01" }
+    },
+    {
+        "name": "jeysom",
+        "vehicle": {
+            "type": "Moto",
+            "plate": "DFG-67T",
+            "city": "Turbaco"
+        },
+        "entry": { "dia": "18", "hora": "06:33:33" },
+        "exit": { "dia": "18", "hora": "07:48:40" }
+    },
+    {
+        "name": "Daniel",
+        "vehicle": {
+            "type": "Auto",
+            "plate": "DDD-231",
+            "city": "Magangué"
+        },
+        "entry": { "dia": "18", "hora": "07:49:28" },
+        "exit": { "dia": "18", "hora": "07:51:55" }
+    },
+    {
+        "name": "jose",
+        "vehicle": {
+            "type": "Moto",
+            "plate": "TTT-65D",
+            "city": "Cartagena"
+        },
+        "entry": { "dia": "18", "hora": "07:57:50" },
+        "exit": { "dia": "N/A", "hora": "N/A" }
+    },
+    {
+        "name": "Victor",
+        "vehicle": {
+            "type": "Auto",
+            "plate": "SSS-222",
+            "city": "Cartagena"
+        },
+        "entry": { "dia": "18", "hora": "09:14:54" },
+        "exit": { "dia": "18", "hora": "09:18:31" }
+    }
+]
