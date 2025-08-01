@@ -4,22 +4,31 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
 
+import ProyectoAula.Styles.Styles;
+
 public class Main extends JFrame {
-    private final JPanel Fondo  = new JPanel();
-    private final JPanel jPanel1 = new JPanel();
-    private final JLabel jLabel1 = new JLabel();
-    private final JLabel jLabel2 = new JLabel();
-    private final JButton ingresoBoton = new JButton();
-    private final JButton jButton4 = new JButton();
-    private final JButton listaBoton = new JButton();
-    private final JButton retiroBoton = new JButton();
+
+    private final JPanel backGround = new JPanel();
+    private final JPanel iconContain = new JPanel();
+    private final JLabel icon = new JLabel();
+    private final JLabel titleLabel = new JLabel();
+    private final JButton entryButton = new JButton();
+    private final JButton closeButton = new JButton();
+    private final JButton listButton = new JButton();
+    private final JButton exitButton = new JButton();
 
     public Main() {
         initComponents();
@@ -28,163 +37,198 @@ public class Main extends JFrame {
     private void initComponents() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal");
-        //setLocationRelativeTo(null);
+        // setLocationRelativeTo(null);
 
-        Fondo.setBackground(new Color(61, 61, 73));
+        backGround.setBackground(Styles.BG_COLOR);
 
-        jButton4.setBackground(new Color(9, 9, 15));
-        jButton4.setFont(new Font("Microsoft JhengHei UI", 1, 12)); // NOI18N
-        jButton4.setForeground(new Color(234, 237, 253));
-        jButton4.setText("Salir");
-        jButton4.addActionListener(this::jButton4ActionPerformed);
+        closeButton.setBackground(Styles.BG_BUTTON_COLOR);
+        closeButton.setFont(Styles.SECUNDARY_FONT);
+        closeButton.setForeground(Styles.FG_BUTTON_COLOR);
+        closeButton.setText("Salir");
+        closeButton.addActionListener(this::closeButtonActionPerformed);
 
-        retiroBoton.setBackground(new Color(9, 9, 15));
-        retiroBoton.setFont(new Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
-        retiroBoton.setForeground(new Color(234, 237, 253));
-        retiroBoton.setText("Retirar Vehiculo");
-        retiroBoton.addActionListener(this::retiroBotonActionPerformed);
+        exitButton.setBackground(Styles.BG_BUTTON_COLOR);
+        exitButton.setFont(Styles.MAIN_FONT);
+        exitButton.setForeground(Styles.FG_BUTTON_COLOR);
+        exitButton.setText("Retirar Vehiculo");
+        exitButton.addActionListener(this::exitButtonActionPerformed);
 
-        ingresoBoton.setBackground(new Color(9, 9, 15));
-        ingresoBoton.setFont(new Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
-        ingresoBoton.setForeground(new Color(234, 237, 253));
-        ingresoBoton.setText("Ingresar Vehiculo");
-        ingresoBoton.addActionListener(this::ingresoBotonActionPerformed);
+        entryButton.setBackground(Styles.BG_BUTTON_COLOR);
+        entryButton.setFont(Styles.MAIN_FONT);
+        entryButton.setForeground(Styles.FG_BUTTON_COLOR);
+        entryButton.setText("Ingresar Vehiculo");
+        entryButton.addActionListener(this::entryButtonActionPerformed);
 
-        listaBoton.setBackground(new Color(9, 9, 15));
-        listaBoton.setFont(new Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
-        listaBoton.setForeground(new Color(234, 237, 253));
-        listaBoton.setText("Listar Vehiculo");
-        listaBoton.addActionListener(this::listaBotonActionPerformed);
+        listButton.setBackground(Styles.BG_BUTTON_COLOR);
+        listButton.setFont(Styles.MAIN_FONT);
+        listButton.setForeground(Styles.FG_BUTTON_COLOR);
+        listButton.setText("Listar Vehiculo");
+        listButton.addActionListener(this::listButtonActionPerformed);
 
-        jPanel1.setBackground(new Color(36, 36, 45));
+        iconContain.setBackground(Styles.BG2_COLOR);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("./img/IconParking.png"))); // NOI18N
+        icon.setIcon(new ImageIcon(getClass().getResource("./Imgs/IconParking.png")));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
+        GroupLayout iconContainLayout = new GroupLayout(iconContain);
+        iconContain.setLayout(iconContainLayout);
+        iconContainLayout.setHorizontalGroup(
+                iconContainLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(iconContainLayout.createSequentialGroup()
                                 .addGap(14, 14, 14)
-                                .addComponent(jLabel1)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-        jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(icon)
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE,
+                                        Short.MAX_VALUE)));
+
+        iconContainLayout.setVerticalGroup(
+                iconContainLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(iconContainLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jLabel1)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+                                .addComponent(icon)
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE,
+                                        Short.MAX_VALUE)));
 
-        jLabel2.setFont(new Font("Microsoft YaHei UI Light", 1, 48)); // NOI18N
-        jLabel2.setForeground(new Color(204, 204, 255));
-        jLabel2.setText("Estacionamiento");
+        titleLabel.setFont(new Font("Microsoft YaHei UI Light", 1, 48));
+        titleLabel.setForeground(new Color(204, 204, 255));
+        titleLabel.setText("Estacionamiento");
 
-        javax.swing.GroupLayout FondoLayout = new javax.swing.GroupLayout(Fondo);
-        Fondo.setLayout(FondoLayout);
-        FondoLayout.setHorizontalGroup(
-                FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(FondoLayout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout
-                                                .createSequentialGroup()
-                                                .addGroup(FondoLayout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel2)
-                                                        .addComponent(jButton4,
-                                                                javax.swing.GroupLayout.Alignment.TRAILING))
-                                                .addContainerGap())
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout
-                                                .createSequentialGroup()
-                                                .addGroup(FondoLayout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(listaBoton,
-                                                                javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 279,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(ingresoBoton,
-                                                                javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 279,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(retiroBoton,
-                                                                javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 279,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(36, 36, 36)))));
-        FondoLayout.setVerticalGroup(
-                FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
+        GroupLayout backGroundLayout = new GroupLayout(backGround);
+        backGround.setLayout(backGroundLayout);
+        backGroundLayout.setHorizontalGroup(
+                backGroundLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(backGroundLayout.createSequentialGroup()
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE,
+                                        Short.MAX_VALUE)
+                                .addComponent(iconContain, GroupLayout.PREFERRED_SIZE,
+                                        GroupLayout.DEFAULT_SIZE,
+                                        GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(
+                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(backGroundLayout.createParallelGroup(
+                                        GroupLayout.Alignment.LEADING)
+                                        .addGroup(GroupLayout.Alignment.TRAILING,
+                                                backGroundLayout
+                                                        .createSequentialGroup()
+                                                        .addGroup(backGroundLayout
+                                                                .createParallelGroup(
+                                                                        GroupLayout.Alignment.LEADING)
+                                                                .addComponent(titleLabel)
+                                                                .addComponent(closeButton,
+                                                                        GroupLayout.Alignment.TRAILING))
+                                                        .addContainerGap())
+                                        .addGroup(GroupLayout.Alignment.TRAILING,
+                                                backGroundLayout
+                                                        .createSequentialGroup()
+                                                        .addGroup(backGroundLayout
+                                                                .createParallelGroup(
+                                                                        GroupLayout.Alignment.LEADING)
+                                                                .addComponent(listButton,
+                                                                        GroupLayout.Alignment.TRAILING,
+                                                                        GroupLayout.PREFERRED_SIZE,
+                                                                        279,
+                                                                        GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(entryButton,
+                                                                        GroupLayout.Alignment.TRAILING,
+                                                                        GroupLayout.PREFERRED_SIZE,
+                                                                        279,
+                                                                        GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(exitButton,
+                                                                        GroupLayout.Alignment.TRAILING,
+                                                                        GroupLayout.PREFERRED_SIZE,
+                                                                        279,
+                                                                        GroupLayout.PREFERRED_SIZE))
+                                                        .addGap(36, 36, 36)))));
+
+        backGroundLayout.setVerticalGroup(
+                backGroundLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(GroupLayout.Alignment.TRAILING, backGroundLayout
+                                .createSequentialGroup()
                                 .addGap(0, 52, Short.MAX_VALUE)
-                                .addGroup(FondoLayout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(FondoLayout.createSequentialGroup()
-                                                .addComponent(jLabel2)
+                                .addGroup(backGroundLayout
+                                        .createParallelGroup(
+                                                GroupLayout.Alignment.LEADING,
+                                                false)
+                                        .addGroup(backGroundLayout
+                                                .createSequentialGroup()
+                                                .addComponent(titleLabel)
                                                 .addGap(39, 39, 39)
-                                                .addComponent(ingresoBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 53,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(retiroBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 53,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(listaBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 53,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton4)
+                                                .addComponent(entryButton,
+                                                        GroupLayout.PREFERRED_SIZE,
+                                                        53,
+                                                        GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(
+                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(exitButton,
+                                                        GroupLayout.PREFERRED_SIZE,
+                                                        53,
+                                                        GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(
+                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(listButton,
+                                                        GroupLayout.PREFERRED_SIZE,
+                                                        53,
+                                                        GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(iconContain,
+                                                GroupLayout.DEFAULT_SIZE,
+                                                GroupLayout.DEFAULT_SIZE,
+                                                Short.MAX_VALUE))
+                                .addPreferredGap(
+                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(closeButton)
                                 .addContainerGap()));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(backGround, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
                                 Short.MAX_VALUE));
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(backGround, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
                                 Short.MAX_VALUE));
 
         pack();
     }
 
-    private void listaBotonActionPerformed(@SuppressWarnings("unused") ActionEvent evt) {
-        /* BaseDatos datos = new BaseDatos();
-        datos.setVisible(true);
-        this.setVisible(false); */
+    private void listButtonActionPerformed(@SuppressWarnings("unused") ActionEvent evt) {
+        /*
+        * BaseDatos datos = new BaseDatos();
+        * setVisible(false);
+        */
     }
 
-    private void ingresoBotonActionPerformed(@SuppressWarnings("unused") ActionEvent evt) {// GEN-FIRST:event_ingresoBotonActionPerformed
-        /* Ingreso ingreso = new Ingreso();
-        ingreso.setVisible(true);
-        this.setVisible(false); */
+    private void entryButtonActionPerformed(@SuppressWarnings("unused") ActionEvent evt) {
+        /*
+        * Ingreso ingreso = new Ingreso();
+        * setVisible(false);
+        */
     }
 
-    private void retiroBotonActionPerformed(@SuppressWarnings("unused") ActionEvent evt) {// GEN-FIRST:event_retiroBotonActionPerformed
-        /* Retiro retiro = new Retiro();
-        retiro.setVisible(true);
-        this.setVisible(false); */
+    private void exitButtonActionPerformed(@SuppressWarnings("unused") ActionEvent evt) {
+        /*
+        * Retiro retiro = new Retiro();
+        * setVisible(false);
+        */
     }
 
-    private void jButton4ActionPerformed(@SuppressWarnings("unused") ActionEvent evt) {// GEN-FIRST:event_jButton4ActionPerformed
+    private void closeButtonActionPerformed(@SuppressWarnings("unused") ActionEvent evt) {
         System.exit(0);
     }
 
-    public static void main(String args[]) {
-        // <editor-fold guatafak
+    // <editor-fold psvm here
+    public static void main(String args[]) throws UnsupportedLookAndFeelException {
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (UIManager.LookAndFeelInfo info : UIManager
+                    .getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException
-                | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                | UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE,
+                    null,
                     ex);
         }
 
