@@ -30,8 +30,10 @@ import javax.swing.WindowConstants;
 
 import ProyectoAula.Enums.TypeOfVehicle;
 import ProyectoAula.Main;
+import ProyectoAula.Styles.Styles;
 
 public class Entry extends JFrame {
+
     private final JPanel backGround = new JPanel();
     private final JPanel iconContain = new JPanel();
     private final JLabel icon = new JLabel();
@@ -56,18 +58,18 @@ public class Entry extends JFrame {
         setTitle("Proyecto de aula");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        backGround.setBackground(new Color(61, 61, 73));
+        backGround.setBackground(Styles.BG_COLOR);
 
-        backButton.setBackground(new Color(9, 9, 15));
-        backButton.setFont(new Font("Microsoft YaHei UI", 0, 12));
-        backButton.setForeground(new Color(204, 204, 255));
-        backButton.setText("backButton");
+        backButton.setBackground(Styles.BG_BUTTON_COLOR);
+        backButton.setFont(Styles.SECUNDARY_FONT);
+        backButton.setForeground(Styles.FG_LABEL_COLOR);
+        backButton.setText("Volver");
         backButton.addActionListener(this::backButtonActionPerformed);
 
         plateTextfield.setVisible(false);
-        plateTextfield.setBackground(new Color(36, 36, 45));
+        plateTextfield.setBackground(Styles.BG2_COLOR);
         plateTextfield.setFont(new Font("Mongolian Baiti", 0, 14));
-        plateTextfield.setForeground(new Color(234, 237, 253));
+        plateTextfield.setForeground(Styles.FG_BUTTON_COLOR);
         plateTextfield.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent evt) {
@@ -76,62 +78,63 @@ public class Entry extends JFrame {
         });
 
         plateLabel.setVisible(false);
-        plateLabel.setFont(new Font("Microsoft JhengHei UI", 1, 14));
-        plateLabel.setForeground(new Color(234, 237, 253));
+        plateLabel.setFont(Styles.MAIN_FONT);
+        plateLabel.setForeground(Styles.FG_BUTTON_COLOR);
         plateLabel.setText("Placa:");
 
-        title.setFont(new Font("Microsoft YaHei UI Light", 1, 36));
-        title.setForeground(new Color(234, 237, 253));
-        title.setText("entryButton de vehiculos");
+        title.setFont(Styles.TITLE_FONT);
+        title.setForeground(Styles.FG_BUTTON_COLOR);
+        title.setText("Ingreso de vehiculos");
 
-        nameLabel.setFont(new Font("Microsoft JhengHei UI", 1, 14));
-        nameLabel.setForeground(new Color(234, 237, 253));
+        nameLabel.setFont(Styles.MAIN_FONT);
+        nameLabel.setForeground(Styles.FG_BUTTON_COLOR);
         nameLabel.setText("Nombre del propietario:");
 
-        nameTextfield.setBackground(new Color(36, 36, 45));
-        nameTextfield.setForeground(new Color(234, 237, 253));
+        nameTextfield.setBackground(Styles.BG2_COLOR);
+        nameTextfield.setForeground(Styles.FG_BUTTON_COLOR);
 
         cities.setVisible(false);
         cities.setBackground(Color.BLACK);
-        cities.setFont(new Font("Microsoft YaHei UI", 0, 12));
-        cities.setForeground(new Color(204, 204, 255));
+        cities.setFont(Styles.SECUNDARY_FONT);
+        cities.setForeground(Styles.FG_LABEL_COLOR);
         cities.setModel(new DefaultComboBoxModel<>(new String[]{"N/A", "Arjona", "Cartagena", "Clemencia", "Magangué", "Mompox", "San Juan Nepomuceno", "Santa Rosa", "Turbaco", "Otro"}));
 
         cityLabel.setVisible(false);
-        cityLabel.setFont(new Font("Microsoft JhengHei UI", 1, 14));
-        cityLabel.setForeground(new Color(234, 237, 253));
+        cityLabel.setFont(Styles.MAIN_FONT);
+        cityLabel.setForeground(Styles.FG_BUTTON_COLOR);
         cityLabel.setText("Ciudad:");
 
-        entryButton.setBackground(new Color(9, 9, 15));
-        entryButton.setFont(new Font("Microsoft YaHei UI", 0, 12));
-        entryButton.setForeground(new Color(204, 204, 255));
+        entryButton.setBackground(Styles.BG_BUTTON_COLOR);
+        entryButton.setFont(Styles.SECUNDARY_FONT);
+        entryButton.setForeground(Styles.FG_LABEL_COLOR);
         entryButton.setText("Ingresar vehiculo");
         entryButton.addActionListener((ActionEvent evt) -> {
             try {
                 entryButtonActionPerformed(evt);
-            } catch (FileNotFoundException | UnsupportedEncodingException e) {}
+            } catch (FileNotFoundException | UnsupportedEncodingException e) {
+            }
         });
 
-        exitButton.setBackground(new Color(9, 9, 15));
-        exitButton.setFont(new Font("Microsoft YaHei UI", 0, 12));
-        exitButton.setForeground(new Color(204, 204, 255));
-        exitButton.setText("exitButton");
+        exitButton.setBackground(Styles.BG_BUTTON_COLOR);
+        exitButton.setFont(Styles.SECUNDARY_FONT);
+        exitButton.setForeground(Styles.FG_LABEL_COLOR);
+        exitButton.setText("Salir");
         exitButton.addActionListener(this::exitButtonActionPerformed);
 
-        iconContain.setBackground(new Color(36, 36, 45));
+        iconContain.setBackground(Styles.BG2_COLOR);
 
-        icon.setIcon(new ImageIcon(getClass().getResource("../../iconContains/IconCar.png")));
+        icon.setIcon(new ImageIcon(getClass().getResource("../../Imgs/IconCar.png")));
         icon.setToolTipText("");
 
-        vehicleLabel.setFont(new Font("Microsoft JhengHei UI", 1, 14));
-        vehicleLabel.setForeground(new Color(234, 237, 253));
+        vehicleLabel.setFont(Styles.MAIN_FONT);
+        vehicleLabel.setForeground(Styles.FG_BUTTON_COLOR);
         vehicleLabel.setText("Tipo de vehiculo:");
 
-        typeOfVehicle.setBackground(new Color(0, 0, 0));
-        typeOfVehicle.setFont(new Font("Microsoft YaHei UI", 0, 12));
-        typeOfVehicle.setForeground(new Color(204, 204, 255));
+        typeOfVehicle.setBackground(Color.BLACK);
+        typeOfVehicle.setFont(Styles.SECUNDARY_FONT);
+        typeOfVehicle.setForeground(Styles.FG_LABEL_COLOR);
         typeOfVehicle.setModel(new DefaultComboBoxModel<>(
-            new TypeOfVehicle[]{TypeOfVehicle.BICYCLE, TypeOfVehicle.CAR, TypeOfVehicle.MOTOCYCLE})
+                new TypeOfVehicle[]{TypeOfVehicle.BICYCLE, TypeOfVehicle.CAR, TypeOfVehicle.MOTOCYCLE})
         );
         typeOfVehicle.addActionListener(this::typeOfVehicleActionPerformed);
 
@@ -256,7 +259,9 @@ public class Entry extends JFrame {
     private void plateTextfieldKeyTyped(KeyEvent evt) {
         int plateLength = plateTextfield.getText().length();
 
-        if (plateLength > 6) evt.consume();
+        if (plateLength > 6) {
+            evt.consume();
+        }
     }
 
     private void exitButtonActionPerformed(@SuppressWarnings("unused") ActionEvent evt) {
@@ -265,7 +270,9 @@ public class Entry extends JFrame {
 
     private void typeOfVehicleActionPerformed(@SuppressWarnings("unused") ActionEvent evt) {
         String type = typeOfVehicle.getSelectedItem().toString();
-        boolean isMotor = type.equals("Motor");
+        boolean isMotor = type.equals(TypeOfVehicle.CAR.toString()) || type.equals(TypeOfVehicle.MOTOCYCLE.toString());
+
+        System.out.println(type);
 
         plateLabel.setVisible(isMotor);
         cityLabel.setVisible(isMotor);
@@ -282,10 +289,8 @@ public class Entry extends JFrame {
         String vehicle = "Bicicleta";
         String city = cities.getSelectedItem().toString();
 
-        if (
-            type.equals(TypeOfVehicle.CAR.toString()) ||
-            type.equals(TypeOfVehicle.MOTOCYCLE.toString())
-        ) {
+        if (type.equals(TypeOfVehicle.CAR.toString())
+                || type.equals(TypeOfVehicle.MOTOCYCLE.toString())) {
             checkPlate = !placa.matches("^[A-Z]{3}-\\d{2}[A-Z0-9]$") && placa.length() <= 6;
             checkCity = !city.equals("N/A");
         }
@@ -312,7 +317,7 @@ public class Entry extends JFrame {
                 }
             }
             scanner.close();
-/*
+            /*
             boolean comp = true;
             for (int i = 0; i < userCont; i++) {
                 if (placa.equals(user.GeplateTextfield(i)) && city.equals(user.GetCity(i)) && !placa.equals("N/A")) {
@@ -339,7 +344,7 @@ public class Entry extends JFrame {
                 writer.println(user.GetAll(i));
             } 
             writer.close();
-*/
+             */
             JOptionPane.showMessageDialog(null, "Vehiculo ingresado con exito!", "Exitoso!", JOptionPane.DEFAULT_OPTION);
         } else {
             JOptionPane.showMessageDialog(null, "Datos invalidos", "Alerta!", JOptionPane.WARNING_MESSAGE);
